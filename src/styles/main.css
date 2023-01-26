@@ -1,0 +1,326 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "League Spartan", sans-serif;
+  background-color: rgb(94, 94, 94);
+}
+
+main {
+  margin: calc((100vh - 689px) / 2) auto;
+  max-width: 570px;
+  padding: 0px 10px;
+}
+main header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+main header nav {
+  display: flex;
+  align-items: center;
+}
+main header nav > label {
+  margin-right: 30px;
+  font-size: 14px;
+  padding-top: 2px;
+}
+main header nav > ul {
+  position: relative;
+  width: 70px;
+  height: 26px;
+  border-radius: 16px;
+  background-color: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  counter-reset: num;
+}
+main header nav > ul > li {
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: 0.2s;
+}
+main header nav > ul > li::before {
+  position: absolute;
+  content: counter(num);
+  counter-increment: num;
+  top: -21px;
+  left: 4px;
+  width: 10px;
+  height: 10px;
+}
+main header nav > ul > li:hover:nth-child(1) {
+  background-color: hsl(6deg, 63%, 50%);
+}
+main header nav > ul > li:hover:nth-child(2) {
+  background-color: hsl(25deg, 98%, 40%);
+}
+main header nav > ul > li:hover:nth-child(3) {
+  background-color: hsl(176deg, 100%, 44%);
+}
+main .calculator-screen {
+  max-width: 100%;
+  height: 130px;
+  border-radius: 12px;
+  background-color: #444;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0px 30px;
+}
+main .calculator-screen > input[type=text] {
+  max-width: 100%;
+  text-align: right;
+  font-size: 50px;
+  font-weight: 700;
+  color: white;
+  border: none;
+  background-color: inherit;
+  -webkit-appearance: none;
+          appearance: none;
+  -moz-appearance: textfield;
+}
+main .calculator-screen > input[type=text]:focus {
+  outline: none;
+}
+main .calculator-screen > input[type=text]::-webkit-inner-spin-button, main .calculator-screen > input[type=text]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+main .calculator-keypad {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border-radius: 12px;
+  background-color: #444;
+}
+main .calculator-keypad .keypad-num-operations {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(20px, 1fr));
+  gap: 20px;
+}
+main .calculator-keypad .keypad-num-operations > button {
+  transition: 0.2s;
+  cursor: pointer;
+  height: 66px;
+  border-radius: 12px;
+  border: none;
+  font-size: 38px;
+  font-weight: 700;
+  border-bottom: 4px solid rgb(95, 90, 90);
+}
+main .calculator-keypad .operations-group {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+main .calculator-keypad .operations-group > button {
+  cursor: pointer;
+  transition: 0.2s;
+  height: 66px;
+  border-radius: 12px;
+  border: none;
+  font-size: 24px;
+  font-weight: 1000;
+  border-bottom: 4px solid rgb(95, 90, 90);
+  width: 50%;
+}
+main .calculator-keypad .del-reset-btn {
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  letter-spacing: -1.7px;
+}
+
+main.theme-one header {
+  color: white;
+}
+main.theme-one header nav ul {
+  background-color: hsl(223deg, 31%, 20%);
+}
+main.theme-one header nav ul > li:nth-child(1) {
+  background-color: hsl(6deg, 63%, 50%);
+}
+main.theme-one header nav ul > li:nth-child(1):hover {
+  background-color: #f96c5b !important;
+}
+main.theme-one .calculator-screen {
+  background-color: hsl(224deg, 36%, 15%);
+}
+main.theme-one .calculator-keypad {
+  background-color: hsl(223deg, 31%, 20%);
+}
+main.theme-one .calculator-keypad .keypad-num-operations button {
+  background-color: hsl(30deg, 25%, 89%);
+  border-color: hsl(28deg, 16%, 65%);
+  color: hsl(221deg, 14%, 31%);
+}
+main.theme-one .calculator-keypad .keypad-num-operations button:hover:not(.del-reset-btn) {
+  background-color: white;
+}
+main.theme-one .calculator-keypad .del-reset-btn {
+  background-color: hsl(225deg, 21%, 49%) !important;
+  border-color: hsl(224deg, 28%, 35%) !important;
+  color: white !important;
+  transition: 0.2s;
+}
+main.theme-one .calculator-keypad .del-reset-btn:hover {
+  background-color: hsl(223deg, 48%, 75%) !important;
+}
+main.theme-one .calculator-keypad .equal-btn {
+  background-color: hsl(6deg, 63%, 50%) !important;
+  border-color: hsl(6deg, 70%, 34%);
+  color: white;
+}
+main.theme-one .calculator-keypad .equal-btn:hover {
+  background-color: #f96c5b !important;
+}
+
+main.theme-two {
+  color: hsl(60deg, 10%, 19%);
+}
+main.theme-two header {
+  color: hsl(60deg, 10%, 19%);
+}
+main.theme-two header nav ul {
+  background-color: hsl(0deg, 5%, 81%);
+}
+main.theme-two header nav ul > li:nth-child(2) {
+  background-color: hsl(25deg, 98%, 40%);
+}
+main.theme-two header nav ul > li:nth-child(2):hover {
+  background-color: #ff8b38;
+}
+main.theme-two .calculator-screen {
+  background-color: hsl(0deg, 0%, 93%);
+}
+main.theme-two .calculator-screen input {
+  color: hsl(60deg, 10%, 19%);
+}
+main.theme-two .calculator-keypad {
+  background-color: hsl(0deg, 5%, 81%);
+}
+main.theme-two .calculator-keypad .keypad-num-operations button {
+  background-color: hsl(45deg, 7%, 89%);
+  border-color: hsl(35deg, 11%, 61%);
+  color: hsl(60deg, 10%, 19%);
+}
+main.theme-two .calculator-keypad .keypad-num-operations button:hover:not(.del-reset-btn) {
+  background-color: white;
+}
+main.theme-two .del-reset-btn {
+  background-color: hsl(185deg, 42%, 37%) !important;
+  border-color: hsl(185deg, 58%, 25%) !important;
+  color: white !important;
+}
+main.theme-two .del-reset-btn:hover {
+  background-color: #63b4bc !important;
+}
+main.theme-two .equal-btn {
+  background-color: hsl(25deg, 98%, 40%) !important;
+  border-color: hsl(6deg, 70%, 34%) !important;
+  color: white;
+}
+main.theme-two .equal-btn:hover {
+  background-color: #ff8b38 !important;
+}
+
+main.theme-three {
+  color: hsl(52deg, 100%, 62%);
+}
+main.theme-three header nav ul {
+  background-color: hsl(268deg, 71%, 12%);
+}
+main.theme-three header nav ul > li:nth-child(3) {
+  background-color: hsl(176deg, 100%, 44%);
+}
+main.theme-three header nav ul > li:nth-child(3):hover {
+  background-color: #94fff9;
+}
+main.theme-three .calculator-screen {
+  background-color: hsl(268deg, 71%, 12%);
+}
+main.theme-three .calculator-screen input {
+  color: hsl(52deg, 100%, 62%);
+}
+main.theme-three .calculator-keypad {
+  background-color: hsl(268deg, 71%, 12%);
+}
+main.theme-three .calculator-keypad .keypad-num-operations button {
+  background-color: hsl(268deg, 47%, 21%);
+  border-color: hsl(290deg, 70%, 36%);
+  color: hsl(52deg, 100%, 62%);
+}
+main.theme-three .calculator-keypad .keypad-num-operations button:hover:not(.del-reset-btn) {
+  background-color: #6b34ac !important;
+}
+main.theme-three .del-reset-btn {
+  background-color: hsl(281deg, 89%, 26%) !important;
+  border-color: hsl(285deg, 91%, 52%) !important;
+  color: white !important;
+}
+main.theme-three .del-reset-btn:hover {
+  background-color: #8631b0 !important;
+}
+main.theme-three .equal-btn {
+  background-color: hsl(176deg, 100%, 44%) !important;
+  border-color: hsl(177deg, 92%, 70%) !important;
+  color: black;
+}
+main.theme-three .equal-btn:hover {
+  background-color: #94fff9 !important;
+}
+
+@media (max-width: 600px) {
+  main {
+    margin-top: calc((100vh - 645px) / 2);
+    padding: 20px;
+  }
+  main header nav ul li::before {
+    font-size: 14px;
+  }
+  main .calculator-screen {
+    height: 85px;
+    border-radius: 9px;
+  }
+  main .calculator-screen input[type=text] {
+    font-size: 32px;
+  }
+  main .calculator-keypad {
+    margin-top: 25px;
+    padding: 25px 25px;
+    border-radius: 9px;
+  }
+  main .calculator-keypad .keypad-num-operations {
+    gap: 14px;
+  }
+  main .calculator-keypad .keypad-num-operations button:not(.del-reset-btn) {
+    font-size: 30px !important;
+    border-radius: 6px;
+    font-weight: 1000;
+  }
+  main .calculator-keypad .operations-group {
+    margin-top: 14px;
+  }
+  main .calculator-keypad .del-reset-btn {
+    border-radius: 6px !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    letter-spacing: -1.7px;
+  }
+  main .calculator-keypad .equal-btn {
+    border-radius: 6px !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    letter-spacing: -1.7px;
+  }
+}/*# sourceMappingURL=main.css.map */
